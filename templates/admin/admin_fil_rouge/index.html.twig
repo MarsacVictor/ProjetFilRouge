@@ -1,0 +1,49 @@
+{% extends '/admin/base_admin.html.twig' %}
+
+{% block title %}Hello AdminFilRougeController!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('lister') }}
+{% endblock %}
+{% block contenu %}
+    <div class="list-realisation">
+        {% for message in app.flashes('notice') %}
+            <div class="alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <a class="btn btn-primary" href="{{path('app_admin_ajouter')}}">Ajouter une réalisation</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Achetable</th>
+                <th>Vendu</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for realisation in realisations %}
+                <tr>
+                    <td><img class="fit-picture" src="{{ asset('uploads/realisations/' ~ realisation.imageRealisation) }}"/></td>
+                    <td>{{ realisation.nom }}</td>
+                    <td>{{ realisation.prix }}</td>
+                    <td>{{ realisation.description }}</td>
+                    <td>{{ realisation.type }}</td>
+                    <td>{{ realisation.achetable ? "Oui" : "Non"}}</td>
+                    <td>{{ realisation.vendu ? "Oui" : "Non"}}</td>
+                    <td>
+                        <a class="btn btn-success" type="submit" href="{{path('app_admin_modifier', {'id' : realisation.id}) }}">Modifier</a>
+                        <a class="btn btn-warning" type="submit" onclick="return confirm('Etes vous sur')" href="{{path('app_admin_supprimer', {'id' : realisation.id}) }}">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}

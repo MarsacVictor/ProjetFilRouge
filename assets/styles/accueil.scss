@@ -1,0 +1,63 @@
+@import "~bootstrap/scss/bootstrap";
+.title {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  h1 {
+    color: white!important;
+  }
+}
+.presentation .image:first-child {
+  margin-right: 150px;
+}
+.presentation {
+  display: flex;
+  justify-content: center;
+  .image {
+    color:white;
+    .profil-picture {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  .description {
+    text-decoration: none;
+    color: white;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+.realisation {
+  padding-top: 50px;
+  .presentation {
+    padding-bottom: 40px;
+  }
+  .presentation-inverse {
+    display: flex;
+    justify-content: center;
+    .image {
+      .profil-picture {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    .description {
+      margin-right: 150px;
+      text-decoration: none;
+      color: white;
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+.offres {
+  margin-bottom: 100px;
+  .button-offre {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}

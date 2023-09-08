@@ -1,0 +1,22 @@
+//@import "~bootstrap/scss/bootstrap";
+body {
+    background-image: url('../../public/image/background.jpg');
+    color: white;
+
+    .navbar-dark {
+        background: black!important;
+    }
+    footer {
+        background:black;
+        margin-bottom: -17px;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        .reseaux {
+            width: 770px;
+            margin-right: 150px;
+
+        }
+    }
+}

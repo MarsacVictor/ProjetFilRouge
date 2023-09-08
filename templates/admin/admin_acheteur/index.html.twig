@@ -1,0 +1,37 @@
+{% extends '/admin/base_admin.html.twig' %}
+
+{% block title %}Hello AdminFilRougeController!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('lister') }}
+{% endblock %}
+{% block contenu %}
+    <div class="list-realisation">
+        {% for message in app.flashes('notice') %}
+            <div class="alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Realisation</th>
+                <th>Nom</th>
+                <th>Adressse</th>
+                <th>email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for acheteur in acheteurs %}
+                <tr>
+                    <td><img class="fit-picture" src="{{ asset('uploads/realisations/' ~ acheteur.realisation.imageRealisation) }}"/></td>
+                    <td>{{ acheteur.nom }}</td>
+                    <td>{{ acheteur.adresse }}</td>
+                    <td>{{ acheteur.mail }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('accueil') }}
+{% endblock %}
+{% block body %}
+    <div class="title">
+        <h1>L'ombre de mars</h1>
+    </div>
+    <div class="presentation">
+        <div class="image">
+            <img class="profil-picture" src={{ asset('image/Carre_blanc.jpg') }}>
+        </div>
+        <div class="description">
+            <p>Description</p>
+            <a href="#" class="btn btn-light">Me contacter</a>
+        </div>
+    </div>
+
+    <div class="realisation">
+        <div class="title">
+            <h1>Dernières réalisations</h1>
+        </div>
+        {% for key, realisation in realisations|slice(-4) %}
+            {% if key is divisible by(2) %}
+                <div class="presentation">
+                    <div class="image">
+                        <img class="profil-picture" src={{ asset('uploads/realisations/' ~ realisation.imageRealisation) }}>
+                    </div>
+                    <div class="description">
+                        <p>{{ realisation.description }}</p>
+                        <a href="{{path('app_voir_realisation', {id: realisation.id})}}" class="btn btn-light">Voir la réalisations</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="presentation-inverse">
+                    <div class="description">
+                        <p>{{ realisation.description }}</p>
+                        <a href="{{path('app_voir_realisation', {id: realisation.id})}}" class="btn btn-light">Voir la réalisation</a>
+                    </div>
+                    <div class="image">
+                        <img class="profil-picture" src={{ asset('uploads/realisations/' ~ realisation.imageRealisation) }}>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

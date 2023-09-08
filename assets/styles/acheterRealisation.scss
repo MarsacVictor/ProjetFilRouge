@@ -1,0 +1,23 @@
+@import "~bootstrap/scss/bootstrap";
+.acheter-realisation {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  .card-acheter {
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px white solid;
+    margin-bottom: 120px;
+    img {
+      width:400px;
+    }
+  }
+
+}

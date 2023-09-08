@@ -1,0 +1,43 @@
+{% extends '/admin/base_admin.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('editRealisation') }}
+{% endblock %}
+{% block contenu %}
+    <div class="group-realisation">
+        <div>
+            <h1>Ajouter une réalisation</h1>
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-4">
+                    {{ form_row(form.nom) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(form.prix) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(form.type) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(form.achetable) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(form.vendu) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(form.description) }}
+                </div>
+                <div class="col-4">
+                    {{ form_row(form.imageRealisation) }}
+                </div>
+            </div>
+            {% if app.request.get('_route') == 'app_admin_ajouter' %}
+                <button class="btn btn-primary" type="submit">Ajouter</button>
+            {% else %}
+                <button class="btn btn-primary" type="submit">Modifier</button>
+            {% endif %}
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+{% endblock %}

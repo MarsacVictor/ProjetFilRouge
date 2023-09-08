@@ -1,0 +1,9 @@
+@import "~bootstrap/scss/bootstrap";
+section .container {
+  padding-top: 50px;
+  min-height: 696px;
+
+}
+.row .card:not(:last-child) {
+    margin-right: 30px;
+}

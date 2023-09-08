@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RealisationController!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('listerRealisation') }}
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for realisation in realisations %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top pt-2" src="{{ asset('uploads/realisations/' ~ realisation.imageRealisation) }}" alt="Card image cap">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ realisation.nom }}</h5>
+                        <p class="card-text">{{ realisation.description }}</p>
+                        <p class="card-text">{{ realisation.prix }} €</p>
+                        {% if(realisation.achetable and not realisation.vendu ) %}
+                            <a href="{{path('app_voir_realisation', {id: realisation.id})}}" class="btn btn-primary">Acheter</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
